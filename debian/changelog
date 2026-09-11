@@ -1,0 +1,11 @@
+heroicons (1.0.0) unstable; urgency=medium
+
+  * Initial release
+  * Includes SVG icons in normal, solid, mini, and micro variants
+  * Includes React JSX components
+  * Provides svg2assets conversion tool
+  * Provides batch-convert.sh for batch processing
+  * Includes man pages and bash completions
+
+ -- Lenik (谢继雷) <lenik@bodz.net>  Wed, 08 Jan 2026 12:00:00 +0000
+

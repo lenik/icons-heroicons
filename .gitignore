@@ -1,0 +1,22 @@
+# Packaging repo — upstream clone lives in orig/ (not tracked)
+/orig/
+/data/
+/node_modules/
+/build/
+/template/
+
+# Debian build artifacts
+debian/.debhelper/
+debian/debhelper-build-stamp
+debian/files
+debian/*.substvars
+debian/*.debhelper.log
+debian/tmp/
+
+# Package build products (dpkg-buildpackage artifacts)
+/*.deb
+/*.dsc
+/*.changes
+/*.buildinfo
+# dpkg may write foo.build — do not ignore meson.build
+/*_[0-9]*.build

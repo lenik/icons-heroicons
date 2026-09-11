@@ -1,0 +1,59 @@
+.TH BATCH-CONVERT.SH 1 "January 2024" "heroicons" "User Commands"
+.SH NAME
+batch-convert.sh \- Batch convert SVG icons to image assets
+.SH SYNOPSIS
+.B batch-convert.sh
+[\fIOPTIONS\fR]
+.SH DESCRIPTION
+\fBbatch-convert.sh\fR converts all SVG icons in the svg/ directory to raster
+image formats. It processes icons by variant (normal, solid, mini, micro) with
+appropriate sizes for each variant.
+.SH OPTIONS
+.TP
+\fB\-t\fR, \fB\-\-type\fR \fITYPE\fR
+Type of the output directory (png default, jpg)
+.TP
+\fB\-q\fR, \fB\-\-quiet\fR
+Quiet mode
+.TP
+\fB\-v\fR, \fB\-\-verbose\fR
+Verbose mode
+.TP
+\fB\-h\fR, \fB\-\-help\fR
+Show help message
+.TP
+\fB\-\-version\fR
+Show version information
+.SH SIZE MAPPINGS
+The script uses different sizes for each icon variant:
+.TP
+.B normal
+16, 24, 32, 48, 64, 128, 256
+.TP
+.B solid
+16, 24, 32, 48, 64, 128, 256
+.TP
+.B mini
+8, 12, 16
+.TP
+.B micro
+16, 24
+.SH EXAMPLES
+Convert all icons to PNG:
+.RS
+\fBbatch-convert.sh\fR
+.RE
+
+Convert all icons to JPG:
+.RS
+\fBbatch-convert.sh\fR \-t jpg
+.RE
+.SH SEE ALSO
+.BR svg2assets (1)
+.SH AUTHOR
+Lenik <heroicons@bodz.net>
+.SH COPYRIGHT
+Copyright (c) 2026 Lenik
+.br
+Licensed under the GNU General Public License, version 3 or later.
+

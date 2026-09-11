@@ -1,0 +1,28 @@
+#!/usr/bin/make -f
+# debian/rules for heroicons
+
+export DH_VERBOSE = 1
+
+%:
+	dh $@
+
+override_dh_auto_build:
+	# orig/ = upstream clone; derive installable assets into data/
+	if [ ! -d data/svg ]; then \
+		npm ci --ignore-scripts || npm install --ignore-scripts; \
+		node scripts/extract_icons.js; \
+	fi
+	$(MAKE) build-png
+
+override_dh_auto_install:
+	$(MAKE) DESTDIR=$(CURDIR)/debian/icons-heroicons PREFIX=/usr install
+
+execute_after_dh_auto_build:
+	iconlib index -o data/preview --name heroicons --title heroicons \
+	  --icons-url-prefix .. --icons-root=data/svg
+
+execute_after_dh_auto_install:
+	if [ -d data/preview ]; then \
+	  install -d debian/icons-heroicons/usr/share/icons-heroicons/preview; \
+	  cp -a data/preview/. debian/icons-heroicons/usr/share/icons-heroicons/preview/; \
+	fi
