@@ -1,0 +1,73 @@
+= batch-convert.sh(1)
+{project-author} <{project-email}>
+v{project-version}, {project-year}
+:doctype: manpage
+:manmanual: User Commands
+:mansource: batch-convert.sh
+:man-linkstyle: blue R <>
+:nofooter:
+
+== NAME
+
+batch-convert.sh - Batch convert SVG icons to image assets
+
+== SYNOPSIS
+
+*batch-convert.sh* [_OPTIONS_]
+
+== DESCRIPTION
+
+*batch-convert.sh* converts all SVG icons in the svg/ directory to raster image formats. It processes icons by variant (normal, solid, mini, micro) with appropriate sizes for each variant.
+
+== OPTIONS
+
+*-t*, *--type* _TYPE_::
+  Type of the output directory (png default, jpg)
+*-q*, *--quiet*::
+  Quiet mode
+*-v*, *--verbose*::
+  Verbose mode
+*-h*, *--help*::
+  Show help message
+*--version*::
+  Show version information
+
+== SIZE MAPPINGS
+
+The script uses different sizes for each icon variant:
+
+*normal*::
+  16, 24, 32, 48, 64, 128, 256
+*solid*::
+  16, 24, 32, 48, 64, 128, 256
+*mini*::
+  8, 12, 16
+*micro*::
+  16, 24
+
+== EXAMPLES
+
+Convert all icons to PNG:
+
+____
+*batch-convert.sh*
+____
+
+Convert all icons to JPG:
+
+____
+*batch-convert.sh* -t jpg
+____
+
+== SEE ALSO
+
+*svg2assets*(1)
+
+== AUTHOR
+
+Lenik <heroicons@bodz.net>
+
+== COPYRIGHT
+
+Copyright (c) 2026 Lenik +
+Licensed under the GNU General Public License, version 3 or later.

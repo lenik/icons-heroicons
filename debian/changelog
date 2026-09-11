@@ -1,3 +1,22 @@
+icons-heroicons (1.0.1) unstable; urgency=medium
+
+  * Align packaging/Meson/man pages to current zephyr style (zfr ize).
+  * add README-zh_CN.md: from typescript template (banner stripped)
+  * add packaging/README.md: from typescript template
+  * add packaging/lib/host.sh: from typescript template
+  * add packaging/lib/common.mk: from typescript template
+  * add packaging/rpm/Makefile: from typescript template
+  * add packaging/rpm/.gitignore: from typescript template
+  * add packaging/win32/Makefile: from typescript template
+  * add packaging/win32/README.md: from typescript template
+  * add packaging/win32/.gitignore: from typescript template
+  * add packaging/win32/build-host.example: from typescript template
+  * add packaging/win32/mingw/Makefile: from typescript template
+  * add packaging/win32/mingw/meson-cross.ini: from typescript template
+  * …and 29 more path updates.
+
+ -- Lenik (谢继雷) <lenik@bodz.net>  Sat, 12 Sep 2026 03:29:33 +0800
+
 icons-heroicons (1.0.0) unstable; urgency=medium
 
   * Packaging as icons-heroicons with iconlibutils launcher.

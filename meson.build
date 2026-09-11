@@ -1,7 +1,27 @@
 project('icons-heroicons',
-  version: '1.0.0',
+  version: run_command(
+        'sh',
+        '-c', '''
+        v=$(
+            command -v zfr >/dev/null 2>&1 && zfr version 2>/dev/null || true
+        )
+        if [ -z "$v" ] && [ -f VERSION ]; then
+            v=$(head -n1 VERSION | tr -d '\r')
+            v=${v#v}
+        fi
+        if [ -z "$v" ]; then
+            v="0.0.0" # FIXED TO 0.0.0, DO NOT MODIFY
+        fi
+        printf '%s' "$v"
+        ''',
+        check: false,
+    ).stdout().strip(),
   license: 'MIT',
   meson_version: '>= 0.61.0')
+project_author = 'Lenik (谢继雷)'
+project_email = 'lenik@bodz.net'
+project_year = 2026
+
 
 fs = import('fs')
 prefix = get_option('prefix')
@@ -34,4 +54,68 @@ foreach _faiss : ['faiss.index', 'faiss.map', 'faiss.json']
   if fs.is_file(_faiss)
     install_data(_faiss, install_dir: pkgdatadir)
   endif
+endforeach
+
+asciidoctor = find_program('asciidoctor', required: true)
+
+mandir = prefix / get_option('mandir')
+pkgdocdir = datadir / 'doc' / meson.project_name()
+
+run_target(
+    'look',
+    command: [
+        'bash',
+        '-euc', '''
+            tmpdir=$(mktemp -d)
+            DESTDIR=$tmpdir meson install -C "@BUILD_ROOT@"
+            tree "$tmpdir"
+            rm -fr "$tmpdir"
+        ''',
+    ],
+)
+
+install_data(
+    [
+        'LICENSE',
+        'README.md',
+        'README-zh_CN.md',
+    ],
+    install_dir: pkgdocdir,
+)
+
+puffs = [
+    'batch-convert.sh',
+]
+foreach puff : puffs
+  custom_target(
+    puff + '-man',
+    input: 'docs' / (puff + '.adoc'),
+    output: puff + '.1',
+    command: [
+      asciidoctor,
+      '-b', 'manpage',
+      '-a', 'project-version=' + meson.project_version(),
+      '-a', 'project-year=@0@'.format(project_year),
+      '-a', 'project-author=' + project_author,
+      '-a', 'project-email=' + project_email,
+      '-o', '@OUTPUT@',
+      '@INPUT@',
+    ],
+    build_by_default: true,
+    install: true,
+    install_dir: mandir / 'man1',
+  )
+endforeach
+
+bash_files = [
+    'completions/icons-heroicons.bash',
+]
+
+foreach file : bash_files
+name = fs.stem(file)
+install_data(
+    file,
+    install_dir: datadir / 'bash-completion' / 'completions',
+    rename: name,
+)
 endforeach

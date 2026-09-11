@@ -2,3 +2,6 @@
 export DH_VERBOSE = 1
 %:
 	dh $@ --buildsystem=meson
+
+# Autotools leftovers must not run after Meson conversion.
+override_dh_autoreconf:
