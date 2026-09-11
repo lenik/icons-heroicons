@@ -1,13 +1,8 @@
-icons-heroicons (1.0.1-1) unstable; urgency=medium
+icons-heroicons (1.0.0) unstable; urgency=medium
 
+  * Packaging as icons-heroicons with iconlibutils launcher.
   * Install prebuilt index/ web preview and FAISS faiss.* beside icons.
-  * library.iconlib: icons_root=data/svg, faiss_index= share dir for NL search.
-  * Prefer data/svg for meson install; ignore index/ in git (track faiss.*).
+  * library.iconlib: icons_root=data/svg, faiss_index for NL search.
+  * Prefer data/svg for meson install; ignore index/ (track faiss.*).
 
- -- Lenik (谢继雷) <lenik@bodz.net>  Sat, 12 Sep 2026 03:26:00 +0800
-
-icons-heroicons (1.0.0-1) unstable; urgency=medium
-
-  * Packaging with iconlibutils launcher, web index/, and FAISS faiss.*.
-
- -- Lenik (谢继雷) <lenik@bodz.net>  Sat, 12 Sep 2026 03:20:00 +0800
+ -- Lenik (谢继雷) <lenik@bodz.net>  Sat, 12 Sep 2026 03:30:00 +0800
