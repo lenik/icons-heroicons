@@ -1,11 +1,13 @@
-heroicons (1.0.0) unstable; urgency=medium
+icons-heroicons (1.0.1-1) unstable; urgency=medium
 
-  * Initial release
-  * Includes SVG icons in normal, solid, mini, and micro variants
-  * Includes React JSX components
-  * Provides svg2assets conversion tool
-  * Provides batch-convert.sh for batch processing
-  * Includes man pages and bash completions
+  * Install prebuilt index/ web preview and FAISS faiss.* beside icons.
+  * library.iconlib: icons_root=data/svg, faiss_index= share dir for NL search.
+  * Prefer data/svg for meson install; ignore index/ in git (track faiss.*).
 
- -- Lenik (谢继雷) <lenik@bodz.net>  Wed, 08 Jan 2026 12:00:00 +0000
+ -- Lenik (谢继雷) <lenik@bodz.net>  Sat, 12 Sep 2026 03:26:00 +0800
 
+icons-heroicons (1.0.0-1) unstable; urgency=medium
+
+  * Packaging with iconlibutils launcher, web index/, and FAISS faiss.*.
+
+ -- Lenik (谢继雷) <lenik@bodz.net>  Sat, 12 Sep 2026 03:20:00 +0800

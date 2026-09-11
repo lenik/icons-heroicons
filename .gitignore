@@ -1,6 +1,7 @@
 # Packaging repo — upstream clone lives in orig/ (not tracked)
 /orig/
 /data/
+/index/
 /node_modules/
 /build/
 /template/
@@ -20,3 +21,9 @@ debian/tmp/
 /*.buildinfo
 # dpkg may write foo.build — do not ignore meson.build
 /*_[0-9]*.build
+FILES
+itree.tex
+libauto
+package-lock.json
+pnpm-lock.yaml
+yarn.lock

@@ -1,4 +1,4 @@
-# Installed by icons-heroicons — discovered as /usr/share/iconlibutils/library/heroicons/
+# Installed by icons-heroicons as /usr/share/iconlibutils/library/heroicons
 name=heroicons
 type=auto
 path=/usr/share/icons-heroicons
@@ -7,3 +7,5 @@ license=MIT
 homepage=https://heroicons.com/
 description=Heroicons SVG icon set from Tailwind Labs
 package=icons-heroicons
+icons_root=data/svg
+faiss_index=/usr/share/icons-heroicons
