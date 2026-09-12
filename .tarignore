@@ -1,0 +1,10 @@
+# Keep faiss artifacts in git; exclude from zfr release source tarball.
+/faiss.index
+/faiss.map
+/faiss.json
+/faiss.index.xz
+/faiss.map.xz
+/faiss.json.xz
+faiss.*
+/faiss
+/faiss.xz

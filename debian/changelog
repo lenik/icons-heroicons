@@ -1,3 +1,10 @@
+icons-heroicons (1.0.2) unstable; urgency=medium
+
+  * Unify FAISS layout: basename faiss / faiss.N, xz in git, decompress on install.
+  * library.iconlib: relative faiss_index=; meson install-faiss helper.
+
+ -- Lenik (谢继雷) <lenik@bodz.net>  Sat, 12 Sep 2026 10:06:52 +0800
+
 icons-heroicons (1.0.1) unstable; urgency=medium
 
   * Align packaging/Meson/man pages to current zephyr style (zfr ize).

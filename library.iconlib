@@ -8,4 +8,4 @@ homepage=https://heroicons.com/
 description=Heroicons SVG icon set from Tailwind Labs
 package=icons-heroicons
 icons_root=data/svg
-faiss_index=/usr/share/icons-heroicons
+faiss_index=faiss
